@@ -24,5 +24,14 @@ class B(A):
     def __init__(self):
         super(B, self).__init__(['foo', 'bar'])
 
-myb = B()
-myb.print_names()
+#myb = B()
+#myb.print_names()
+
+a = A(names=['Mark', 'Sievers'])
+b = A(names=['Stu', 'King'])
+
+print "a:", a.print_names()
+print ''
+print "b:", b.print_names()
+print ''
+print "a:", a.print_names()

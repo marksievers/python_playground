@@ -1,3 +1,37 @@
+from functools import wraps
+
+###################
+#Test wrapping
+###################
+
+class MyForm:
+    def __init__(self, form_string='A Default Form'):
+        self.form_string = form_string
+
+    def validate(self):
+        return True if self.form_string else False
+
+def validate_form(form_class=None):
+    def _validator(f):
+        @wraps(f)
+        def _decorator(*args, **kwargs):
+            form = form_class(*args, **kwargs)
+            
+            if not form.validate():
+                print  'Failed to validate'
+                return
+            
+            return f(form.form_string)
+        return _decorator
+    return _validator
+
+@validate_form(MyForm)
+def user_post(data):
+    print data
+
+user_post(None)
+user_post('foo')
+
 ####################
 #Test dicts
 ###################
@@ -11,8 +45,6 @@
 # print myfunc('bar'), ' and ', myfunc('foo')
 #
 # my_dict_func('stink')
-
-
 
 ######################
 # Test inheritience
@@ -51,18 +83,18 @@
 # Test returning multiple values
 #######################
 
-def returns_three(foo, bar, baz):
-    return foo, bar, baz
+# def returns_three(foo, bar, baz):
+#     return foo, bar, baz
 
-def multiplies_three(foo, bar, baz, qux):
-    return foo*2, bar*2, baz*2, qux*2
+# def multiplies_three(foo, bar, baz, qux):
+#     return foo*2, bar*2, baz*2, qux*2
 
 
-values = returns_three(1, 2 , 3)
-print values
+# values = returns_three(1, 2 , 3)
+# print values
 
-mutiplied = multiplies_three(10, *values)
-print mutiplied
+# mutiplied = multiplies_three(10, *values)
+# print mutiplied
 
 
 

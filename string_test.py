@@ -15,6 +15,7 @@ def address(address_data):
         print "regex hit!"    
     if all(i not in address_data['address_2'].lower() for i in non_cities):
         print "non city hit!"   
+#address({'address_2': "Shortland Street"})
 
 def e164_numbers():
     numbers = ('0274 784087', '09 4146687', '21513351', '00643 328 8296', '+64 21 974 573', '44734347')
@@ -41,23 +42,24 @@ def e164_numbers():
                 number = "649" + number 
 
         print "Converted %s to %s" % (orig, number)
-
+#e164_numbers()
 
 def test_strip(foo):
     print foo.lstrip('$')
+#test_strip('$1.50')
 
 def compare(foo, bar):
     if bar and foo not in bar:
         print "foo is not in bar"
     else:
         print "foo is indeed in bar"
+#compare(None, " ")
+
+def return_most_true(foo, bar, baz):
+    desc = foo or bar or baz
+    return desc
+print "most true is '%s'" % return_most_true('', '', None)
+
 
 #print '.'.join(['foo', 'quz', 'baz'])
 #print ''.join(['exists', 'new'])
-
-#test_strip('$1.50')
-#address({'address_2': "Shortland Street"})
-
-#compare(None, " ")
-
-e164_numbers()
