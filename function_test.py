@@ -1,7 +1,34 @@
 from functools import wraps
 
 ###################
-#Test wrapping
+#Test decorating
+#http://www.artima.com/weblogs/viewpost.jsp?thread=240845
+###################
+
+class entryExit(object):
+
+    def __init__(self, f):
+        self.f = f
+
+    def __call__(self):
+        print "Entering", self.f.__name__
+        self.f()
+        print "Exited", self.f.__name__
+
+@entryExit
+def func1():
+    print "inside func1()"
+
+@entryExit
+def func2():
+    print "inside func2()"
+
+func1()
+func2()
+
+###################
+#Test decorating with arguments
+#http://www.artima.com/weblogs/viewpost.jsp?thread=240845
 ###################
 
 class MyForm:
@@ -12,8 +39,8 @@ class MyForm:
         return True if self.form_string else False
 
 def validate_form(form_class=None):
-    def _validator(f):
-        @wraps(f)
+    def _validator(user_post_function):
+        @wraps(user_post_function)
         def _decorator(*args, **kwargs):
             form = form_class(*args, **kwargs)
             
@@ -21,7 +48,7 @@ def validate_form(form_class=None):
                 print  'Failed to validate'
                 return
             
-            return f(form.form_string)
+            return user_post_function(form.form_string)
         return _decorator
     return _validator
 
@@ -29,8 +56,8 @@ def validate_form(form_class=None):
 def user_post(data):
     print data
 
-user_post(None)
-user_post('foo')
+#user_post(None)
+#user_post('foo')
 
 ####################
 #Test dicts

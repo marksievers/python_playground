@@ -1,10 +1,15 @@
 import re
 
+def bullshit_utf8_handling():
+    string = 'Nature Sense†'
+    print string
+
+
 def find_in(string):
     words = ['foo', 'bar']
     if any(i in mystring for i in words):
         print found
-        
+
 def address(address_data):
     non_cities = [' street', ' st', ' road', ' rd', ' avenue', ' ave',  ' mail centre', ' mail center', 'state highway ', ' place', ' square', ' terrace', ' private bag ', 'po box ']
     if 'address_2' in address_data:
@@ -12,9 +17,9 @@ def address(address_data):
     if 'city' not in address_data:
         print "city hit!"
     if re.search(r'^[^0-9]+$', address_data['address_2'], re.I):
-        print "regex hit!"    
+        print "regex hit!"
     if all(i not in address_data['address_2'].lower() for i in non_cities):
-        print "non city hit!"   
+        print "non city hit!"
 #address({'address_2': "Shortland Street"})
 
 def e164_numbers():
@@ -39,7 +44,7 @@ def e164_numbers():
                 number = "64" + number[1:]
             elif len(number) == 7:
                 #now we are going to assume they are aucklanders
-                number = "649" + number 
+                number = "649" + number
 
         print "Converted %s to %s" % (orig, number)
 #e164_numbers()
