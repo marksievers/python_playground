@@ -10,12 +10,4 @@ def iterators():
         del dictionary[key]
         print "After del: ", dictionary
 
-#items = {'fookey':'foovalue','barkey':'barvalue'}
-#for item in items:
-#    print item
-
-foo = {'foo':'foo_key', 'bar': 'bar_key'}
-
-bar = dict(foo)
-bar['new'] = 'new_key'
-print bar
+iterators()

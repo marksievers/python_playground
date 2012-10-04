@@ -48,11 +48,17 @@ def test_unsafe(wordList=None):
 
     return (verbose, compact)
 
-print test_unsafe(None)
-print test_unsafe([])
-print test_unsafe(['foo'])
-print test_unsafe('foo')
+#print test_unsafe(None)
+#print test_unsafe([])
+#print test_unsafe(['foo'])
+#print test_unsafe('foo')
 
+def test_effcient_eval(foo, bar, baz):
+    if foo and not bar and baz:
+        print "Im in!"
+
+
+test_effcient_eval(True, True, True)
 
 
 
