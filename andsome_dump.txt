@@ -1,0 +1,55 @@
+class SubscriptionStatusFilter(admin.SimpleListFilter):
+    title = 'Status'
+    parameter_name = 'status'
+
+    def get_subscription_filter(self, product):
+        kwargs = {}
+        if self.value() == '4':
+            kwargs = {'subscription_offer__life': True}
+        else:
+            if self.value() == '3':
+                current_issue = product.current_issue()
+                if current_issue:
+                    kwargs = {'expiry_issue__number__gt': current_issue.number}
+            else:
+                expiry_issue_number = self.calculate_expiry_issue_number(product)
+                if expiry_issue_number:
+                    kwargs = {'expiry_issue__number': expiry_issue_number}
+        return kwargs
+
+    def calculate_expiry_issue_number(self, product):
+        expiry_issue_number = None
+
+        current_issue = product.current_issue()
+        if current_issue:
+            expiry_issue_number = int(self.value()) + current_issue.number
+
+        return expiry_issue_number
+
+    def lookups(self, request, model_admin):
+        return (('0', 'Expires on current Issue'), ('1', 'Expires next Issue'), ('2', 'Expires in two Issues'),
+             ('3', 'Positive Balance'), ('4', 'Life'))
+
+    def queryset(self, request, queryset):
+        filtered_results = queryset
+
+        if self.value():
+            if request.GET.has_key('product'):
+                #already filtered by product, just filter by the expiry now
+                product = Product.objects.get(pk=int(request.GET.get('product')))
+                query_kwargs = self.get_subscription_filter(product)
+                filtered_results = queryset if not query_kwargs else queryset.filter(**query_kwargs)
+            else:
+                #ProductFilter is unset, calculate expiry issue for each and filter via a big OR query
+                # eg ... WHERE (exp_issue_product_id=1, exp_issue_num=41) OR (exp_issue_product_id=2, exp_issue_num=89) OR ...
+                q_objects = []
+                for product in Product.objects.all():
+                    query_kwargs = self.get_subscription_filter(product)
+                    if query_kwargs:
+                        q_objects.append(Q(expiry_issue__product__pk=product.id, **query_kwargs))
+
+                reduced_q = reduce(operator.or_, q_objects)
+                print reduced_q
+                filtered_results = queryset.filter(reduced_q)
+
+        return filtered_results
