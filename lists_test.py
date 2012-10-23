@@ -14,15 +14,24 @@
 #print bats
 
 #adding lists
-foo = [1, 2, 3]
-bar = [4, 5, 6]
-baz = foo + bar
-print baz
+#foo = [1, 2, 3]
+#bar = [4, 5, 6]
+#baz = foo + bar
+#print baz
 
 # reference the last element of a list
 #bats = ['foo', 'bar', 'baz']
 #print bats[-1]
 
+# assinging multiple objects
+def assign():
+    foo = 'foo'
+    bar = 'false'
+
+    bux, qag = (foo, bar) if True else ("nup", "nup")
+    print bux,',', qag
+
+assign()
 
 
 
