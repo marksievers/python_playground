@@ -25,9 +25,25 @@ def func1():
 def func2():
     print "inside func2()"
 
-func1()
-func2()
+#func1()
+#func2()
 
+##################
+#test decorating without args using wraps
+##################
+
+def _validator(wrapped_function):
+    @wraps(wrapped_function)
+    def _decorator(*args, **kwargs):
+        print "It's good"
+        return wrapped_function(*args, **kwargs)
+    return _decorator
+
+@_validator
+def a_simple_func():
+    print "hi"
+
+a_simple_func()
 ###################
 #Test decorating with arguments
 #http://www.artima.com/weblogs/viewpost.jsp?thread=240845
