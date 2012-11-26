@@ -25,6 +25,15 @@ def test_defaultVals():
         print "empty string"
 #test_defaultVals()
 
+def test_bool_built_in():
+    none_string = None
+    empty_string = ''
+    valid_string = 'foo'
+
+    for foo in (none_string, empty_string, valid_string):
+        print foo, 'evaluates to', bool(foo)
+#test_bool_built_in()
+
 def a_function_that_throws():
     print "Dodgy function being called"
     fo = None
@@ -58,7 +67,13 @@ def test_effcient_eval(foo, bar, baz):
         print "Im in!"
 
 
-test_effcient_eval(True, True, True)
+#test_effcient_eval(True, True, True)
+
+def return_one_and_two():
+    return "one", "two"
+
+one, two = return_one_and_two()
+print one, two
 
 
 

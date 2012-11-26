@@ -3,6 +3,21 @@
 #for idx, val in mylist:
 #    print idx, val
 
+#more unpacking
+categories_dict = { 1: ('Business', 'business'),
+    2: ('Bridal', 'bridal'),
+    3: ('Food', 'food'),
+    4: ('Home & Garden', 'home-garden'),
+    5: ('Specials', 'specials'),
+    6: ('Sport and Leisure', 'sport-leisure'),
+}
+
+for cat_key in categories_dict:
+    # name, slug = *categories_dict[cat_key]
+    # print name, slug
+    name = categories_dict[cat_key]
+    print name
+
 # slicing is out-of-bounds safe
 #mylist = ['foo', 'bar', 'baz']
 #get = mylist[len(mylist):10]
@@ -24,14 +39,14 @@
 #print bats[-1]
 
 # assinging multiple objects
-def assign():
-    foo = 'foo'
-    bar = 'false'
+# def assign():
+#     foo = 'foo'
+#     bar = 'false'
 
-    bux, qag = (foo, bar) if True else ("nup", "nup")
-    print bux,',', qag
+#     bux, qag = (foo, bar) if True else ("nup", "nup")
+#     print bux,',', qag
 
-assign()
+# assign()
 
 
 
