@@ -15,6 +15,8 @@ def test_defaultVals():
         print "empty dict"
     if 0:
         print "0"
+    if 0.00:
+        print "0.00"
     if 1:
         print "1"
     if -1:
@@ -23,7 +25,7 @@ def test_defaultVals():
         print "empty list"
     if "":
         print "empty string"
-#test_defaultVals()
+test_defaultVals()
 
 def test_bool_built_in():
     none_string = None
@@ -72,8 +74,8 @@ def test_effcient_eval(foo, bar, baz):
 def return_one_and_two():
     return "one", "two"
 
-one, two = return_one_and_two()
-print one, two
+#one, two = return_one_and_two()
+#print one, two
 
 
 

@@ -1,23 +1,26 @@
+##########################################
 #unpacking lists of tuples
 #mylist = [('foo', 'foo1'), ('bar', 'bar2'), ('baz', 'baz2')]
 #for idx, val in mylist:
 #    print idx, val
 
+##########################################
 #more unpacking
-categories_dict = { 1: ('Business', 'business'),
-    2: ('Bridal', 'bridal'),
-    3: ('Food', 'food'),
-    4: ('Home & Garden', 'home-garden'),
-    5: ('Specials', 'specials'),
-    6: ('Sport and Leisure', 'sport-leisure'),
-}
+# categories_dict = { 1: ('Business', 'business'),
+#     2: ('Bridal', 'bridal'),
+#     3: ('Food', 'food'),
+#     4: ('Home & Garden', 'home-garden'),
+#     5: ('Specials', 'specials'),
+#     6: ('Sport and Leisure', 'sport-leisure'),
+# }
 
-for cat_key in categories_dict:
-    # name, slug = *categories_dict[cat_key]
-    # print name, slug
-    name = categories_dict[cat_key]
-    print name
+# for cat_key in categories_dict:
+#     # name, slug = *categories_dict[cat_key]
+#     # print name, slug
+#     name = categories_dict[cat_key]
+#     print name
 
+######################################
 # slicing is out-of-bounds safe
 #mylist = ['foo', 'bar', 'baz']
 #get = mylist[len(mylist):10]
@@ -80,4 +83,18 @@ for cat_key in categories_dict:
 
 #Python is kind to the programmer if there are fewer items than you ask for. For example, if you ask for a[:-2]
 #and a only contains one element, you get an empty list instead of an error. Sometimes you would prefer the error, so you have to be aware that this may happen.
+
+
+#names = ['Mark', 'Mark Sievers', 'Mark Daniel Sievers', 'Mr Mark Daniel Sievers']
+
+#for name in names:
+#    parts = name.split(' ')
+#    first = [:]
+
+
+################### ENUMERATE
+# http://docs.python.org/2/tutorial/datastructures.html#looping-techniques
+# convenient way to maintain the loop counter in a for loop]]
+#for i, v in enumerate(['tic', 'tac', 'toe']):
+#    print i, v
 

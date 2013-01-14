@@ -1,7 +1,7 @@
 import re
 
 def bullshit_utf8_handling():
-    string = 'Nature Sense†'
+    string = 'Nature Sense'
     print string
 
 
@@ -63,8 +63,29 @@ def compare(foo, bar):
 def return_most_true(foo, bar, baz):
     desc = foo or bar or baz
     return desc
-print "most true is '%s'" % return_most_true('', '', None)
+#print "most true is '%s'" % return_most_true('', '', None)
 
 
 #print '.'.join(['foo', 'quz', 'baz'])
 #print ''.join(['exists', 'new'])
+
+
+
+def merge_import_ids(first, second):
+    first_tokens = [] if not first else first.split(':')
+    second_tokens = [] if not second else second.split(':')
+
+    first_tokens += second_tokens
+
+    result = ':'.join(first_tokens)
+
+    return result or None
+
+
+for tup in [(None, None), ('', None), (None, ''), (None, 'r1'), ('l1', None), ('l1', 'r1'), ('l1:l2', 'r1'), ('l1:l2', 'r1:r2')]:
+    result = merge_import_ids(tup[0], tup[1])
+    print "(%r, %r) produced %r" % (tup[0], tup[1], result)
+
+
+#print ''.split(':')
+
