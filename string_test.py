@@ -82,10 +82,18 @@ def merge_import_ids(first, second):
     return result or None
 
 
-for tup in [(None, None), ('', None), (None, ''), (None, 'r1'), ('l1', None), ('l1', 'r1'), ('l1:l2', 'r1'), ('l1:l2', 'r1:r2')]:
-    result = merge_import_ids(tup[0], tup[1])
-    print "(%r, %r) produced %r" % (tup[0], tup[1], result)
-
+# for tup in [(None, None), ('', None), (None, ''), (None, 'r1'), ('l1', None), ('l1', 'r1'), ('l1:l2', 'r1'), ('l1:l2', 'r1:r2')]:
+#     result = merge_import_ids(tup[0], tup[1])
+#     print "(%r, %r) produced %r" % (tup[0], tup[1], result)
 
 #print ''.split(':')
 
+
+def is_digit(string):
+    print '%s is a digit: %s' % (string, string.isdigit())
+
+
+is_digit('')
+is_digit('021 025')
+is_digit('-024')
+is_digit('025')
