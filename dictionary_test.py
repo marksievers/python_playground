@@ -13,9 +13,18 @@ def iterators():
 #iterators()
 
 #test 'not in' syntax
-d = {'foo': 'foo value'}
-if 'foo' not in d:
-    print 'No foos here'
+# d = {'foo': 'foo value'}
+# if 'foo' not in d:
+#     print 'No foos here'
 
-elif not 'foo' in d:
-    print 'No foos here either'
+# elif not 'foo' in d:
+#     print 'No foos here either'
+
+
+#test ordered dict
+import collections
+
+data = collections.OrderedDict()
+data['foo'] = 'foo'
+
+print data

@@ -93,7 +93,15 @@ def is_digit(string):
     print '%s is a digit: %s' % (string, string.isdigit())
 
 
-is_digit('')
-is_digit('021 025')
-is_digit('-024')
-is_digit('025')
+# is_digit('')
+# is_digit('021 025')
+# is_digit('-024')
+# is_digit('025')
+
+
+def test_format(foo):
+    print '{0}'.format(foo)
+    print  "%.2f" % 0.9834878
+
+# test_format(None)
+

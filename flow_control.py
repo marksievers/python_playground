@@ -77,5 +77,15 @@ def return_one_and_two():
 #one, two = return_one_and_two()
 #print one, two
 
+def plus_equals():
+    foo = {'bar': 0, 'baz': 1}
+    for k in foo:
+        foo[k] += 1
+        print k, ' is ', foo[k]
+
+plus_equals()
+
+
+
 
 
