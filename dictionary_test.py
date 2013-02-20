@@ -3,6 +3,7 @@ def list_comprehesions():
     messages = [": ".join([x, my_dict[x]]) for x in my_dict]
     print messages
 
+
 def iterators():
     dictionary = {'1': 'one', '2': 'two', '3': 'there'}
     for key, value in dictionary.items():
@@ -10,21 +11,23 @@ def iterators():
         del dictionary[key]
         print "After del: ", dictionary
 
-#iterators()
 
-#test 'not in' syntax
-# d = {'foo': 'foo value'}
-# if 'foo' not in d:
-#     print 'No foos here'
+def not_in_syntax():
+    d = {'foo': 'foo value'}
+    if 'foo' not in d:
+        print 'No foos here'
 
-# elif not 'foo' in d:
-#     print 'No foos here either'
+    elif not 'foo' in d:
+        print 'No foos here either'
 
 
-#test ordered dict
-import collections
+def ordered_dict():
+    import collections
 
-data = collections.OrderedDict()
-data['foo'] = 'foo'
+    data = collections.OrderedDict()
+    data['foo'] = 'foo'
 
-print data
+    print data
+
+urls = {'foo': 'bar', 'bak':'qux'}
+print urls
