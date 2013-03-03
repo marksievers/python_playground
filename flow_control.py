@@ -25,7 +25,7 @@ def test_defaultVals():
         print "empty list"
     if "":
         print "empty string"
-test_defaultVals()
+#test_defaultVals()
 
 def test_bool_built_in():
     none_string = None
@@ -82,8 +82,14 @@ def plus_equals():
     for k in foo:
         foo[k] += 1
         print k, ' is ', foo[k]
+#plus_equals()
 
-plus_equals()
+def for_loop_counter():
+    alist = ['foo', 'bar', 'baz']
+
+    for count, item in enumerate(alist):
+        print '{0}. {1}'.format(count, item)
+#for_loop_counter()
 
 
 

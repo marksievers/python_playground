@@ -35,15 +35,15 @@ def func2():
 def _validator(wrapped_function):
     @wraps(wrapped_function)
     def _decorator(*args, **kwargs):
-        print "It's good"
+        print "It's good", args, kwargs
         return wrapped_function(*args, **kwargs)
     return _decorator
 
 @_validator
-def a_simple_func():
-    print "hi"
+def a_simple_func(foo):
+    print foo, "hi"
 
-a_simple_func()
+a_simple_func('bar')
 ###################
 #Test decorating with arguments
 #http://www.artima.com/weblogs/viewpost.jsp?thread=240845

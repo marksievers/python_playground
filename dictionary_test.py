@@ -29,5 +29,11 @@ def ordered_dict():
 
     print data
 
-urls = {'foo': 'bar', 'bak':'qux'}
-print urls
+def join_dicts():
+    a = {'foo': 'foo value', 'bar': 'bar_value'}
+    b = {'qux': 'qux value', 'bar': 'bar_value'}
+    c = dict(a.items() + b.items())
+
+    print c
+
+join_dicts()
