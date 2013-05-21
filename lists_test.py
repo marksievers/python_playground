@@ -98,3 +98,9 @@
 #for i, v in enumerate(['tic', 'tac', 'toe']):
 #    print i, v
 
+# a_list = ['a', 'b', 'c', 'd', 'e']
+# reversed_list = reversed(a_list)
+
+# for item, counter in enumerate(reversed_list):
+#     print item, counter
+

@@ -89,7 +89,7 @@ def for_loop_counter():
 
     for count, item in enumerate(alist):
         print '{0}. {1}'.format(count, item)
-#for_loop_counter()
+for_loop_counter()
 
 
 
