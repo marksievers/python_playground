@@ -101,6 +101,6 @@
 # a_list = ['a', 'b', 'c', 'd', 'e']
 # reversed_list = reversed(a_list)
 
-# for item, counter in enumerate(reversed_list):
+# for counter, item in enumerate(reversed_list):
 #     print item, counter
 

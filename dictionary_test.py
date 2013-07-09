@@ -1,3 +1,9 @@
+def test_get_method():
+    foo = {}
+    print foo.get('bar')
+
+test_get_method()
+
 def list_comprehesions():
     my_dict = {"1": "foo", "2": "bar"}
     messages = [": ".join([x, my_dict[x]]) for x in my_dict]
@@ -36,4 +42,4 @@ def join_dicts():
 
     print c
 
-join_dicts()
+# join_dicts()

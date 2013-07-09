@@ -38,3 +38,11 @@ print datetime_to_string(datetime.datetime.now())
 #http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior
 
 
+
+#to and from a unix timestamp
+# now = datetime.datetime.now()
+# time.mktime(now.timetuple())
+
+# datetime.datetime.fromtimestamp(1314066603)
+
+

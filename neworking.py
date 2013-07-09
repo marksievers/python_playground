@@ -13,7 +13,7 @@ try:
     url = "http://subscriber-api.dev.andsomeideas.com/api/subscriber_post/?format=json"
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     f = urllib2.urlopen(req)
-    response = f.read()
+    response `= f.read()
     f.close()
 
     print response
