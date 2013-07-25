@@ -97,6 +97,7 @@ def is_digit(string):
 # is_digit('021 025')
 # is_digit('-024')
 # is_digit('025')
+# is_digit('25.00')
 
 
 def test_format(foo):
@@ -105,3 +106,7 @@ def test_format(foo):
 
 # test_format(None)
 
+
+test_digit = "$ 23.00"
+out = test_digit.replace(' ', '').replace('$', '')
+print out
